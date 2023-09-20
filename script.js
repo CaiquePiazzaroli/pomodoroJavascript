@@ -11,8 +11,16 @@ class Tempo {
     exibeTempo(){
         var minutos = document.querySelector(".minutos");
         var segundos = document.querySelector(".segundos");
-        minutos.textContent=String(this.minutos);
-        segundos.textContent=String(this.segundos);
+        if (this.minutos >= 0 && this.minutos <= 9){
+            minutos.textContent="0" + String(this.minutos);
+        } else {
+            minutos.textContent=String(this.minutos);
+        }
+        if (this.segundos >= 0 && this.segundos <= 9){
+            segundos.textContent="0" + String(this.segundos);
+        } else {
+            segundos.textContent =String(this.segundos);
+        }
     }
 
     //metodo para subtrair um segundo do tempo atual 
