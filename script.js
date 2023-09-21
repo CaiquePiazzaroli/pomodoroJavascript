@@ -25,13 +25,19 @@ class Tempo {
 
     //metodo para subtrair um segundo do tempo atual 
     alteraTempo() {
-        this.segundos--;
-        if(this.segundos < 0 && this.minutos >= 0) {
-            this.segundos = 59;
-            this.minutos--;
-            this.exibeTempo();
-        }
-        this.exibeTempo();
+        if(this.minutos === 0 && this.segundos===0){
+            return false;
+        } else {
+            this.segundos--;
+            if(this.segundos < 0 && this.minutos >= 0) {
+                this.segundos = 59;
+                this.minutos--;
+                this.exibeTempo();
+            } else {
+                this.exibeTempo(); 
+            }
+            return true;
+        }     
     }
 
     //metodo para adicionar minutos no tempo total 
@@ -53,9 +59,17 @@ inicio.addEventListener("click", () => {
 
     if(!executouPrimeira){
         //inicia a contagem
-        const timer = setInterval(() => {contador.alteraTempo();},"1000");
+        const timer = setInterval(() => {
+            //se o tempo chegar a zero, o metodo ALTERA TEMPO retrona false 
+            if(contador.alteraTempo() === false) {
+                clearInterval(timer);
+                let campoAlteraTempo = document.querySelector(".campoAlteraTempo").value;
+                contador.adicionarMinutos(Number(campoAlteraTempo));
+                contador.exibeTempo();
+            }
+        },"1000");
         executouPrimeira = true;
-    
+   
         //adiciona evento de cancelar pausar a contagem no botao Pausar
         fim.addEventListener("click", () => {
             clearInterval(timer);
@@ -73,6 +87,7 @@ inicio.addEventListener("click", () => {
             executouPrimeira = false;
         });
     }
+
 })
 
 //pega o valor do campo input como o novo valor da contagem, mesmo nos casos em que o usuário não clica em iniciar
@@ -81,3 +96,4 @@ confirmaAlt.addEventListener("click", () => {
     let campoAlteraTempo = document.querySelector(".campoAlteraTempo").value;
     contador.adicionarMinutos(Number(campoAlteraTempo)); 
 });
+
