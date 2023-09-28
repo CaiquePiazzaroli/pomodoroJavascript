@@ -11,7 +11,7 @@ body {
     display: flex;
     height: 100vh;
     font-size: 10px;
-    background-image: url(assets/design-de-plano-de-fundo-colorido-palm-silhuetas/3878824.jpg);
+    background-image: url(assets/1.jpg);
     background-size:cover;
     background-repeat: no-repeat;
 } 
@@ -81,24 +81,45 @@ body {
     display: flex;
     gap: 0.5em;
     justify-content: center;
+    gap: 4em;
  }
 
  .inicio__fim > button {
     background-color: transparent;
-    border: none;
+    border: solid 2px #053B50;
     font-size: 7em;
     width: 5em;
     font-weight: 700;
-    padding: 0.3em;
+    padding: 0.1em, 0.3em;
     border-radius: 100px;
 }
 
 .inicio__fim > button:hover {
-    background-color: #053B50;
-    color: #EEEEEE;
-    padding: 0.3em;
+   background-color: #053B50;
+   color: #EEEEEE;
+   padding: 0.1em, 0.3em;
 }
 
+
+.altera__background {
+   text-align: center;
+}
+
+.altera__background__botao {
+   background-color: transparent;
+   border: solid 2px #053B50;
+   font-size: 3em;
+   width: 12rem;
+   font-weight: 700;
+   text-align: center;
+   border-radius: 100px;
+}
+
+.altera__background__botao:active {
+   background-color: #08506d;
+   color: #EEEEEE;
+   padding: 0.1em, 0.3em;
+}
 
 .botao__ativo {
     border: none;
@@ -106,5 +127,15 @@ body {
     font-weight: 700;
     padding: 0.3em;
     border-radius: 100px;
-    background-color: aqua; 
+}
+
+@media screen and (max-width: 1144px) {
+   body{  
+      font-size: 6px;
+   } 
+
+   .principal {
+      width: 80%;
+      height: 50%;
+   }
 }
