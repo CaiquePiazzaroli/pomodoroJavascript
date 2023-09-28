@@ -99,7 +99,7 @@ confirmaAlt.addEventListener("click", () => {
 });
 
 
-let backgroundss = ["assets/1.jpg", "assets/2.jpg","assets/3.jpg","assets/4.jpg", "assets/5.jpg"];
+let backgroundss = ["assets/1.jpg", "assets/2.jpg"];
 var alteraBackground = document.querySelector(".altera__background__botao");
 let numeroAnterior = 0;
 alteraBackground.addEventListener("click", () => {
